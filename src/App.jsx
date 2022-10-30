@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import useLocalStorage from 'use-local-storage';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import ContactForm from 'components/ContactForm/ContactForm';
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
 
   const formSubmitHandler = (name, number) => {
